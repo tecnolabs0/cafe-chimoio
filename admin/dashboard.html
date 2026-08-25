@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Dashboard | Café Chimoio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+         SIDEBAR
+    ======================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+                ☕
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Café Chimoio
+                </strong>
+
+                <span>
+                    Administração
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                type="button"
+                data-section="dashboard"
+            >
+
+                <span>
+                    📊
+                </span>
+
+                Dashboard
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                data-section="pedidos"
+            >
+
+                <span>
+                    📦
+                </span>
+
+                Pedidos
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                data-section="pagamentos"
+            >
+
+                <span>
+                    💳
+                </span>
+
+                Pagamentos
+
+                <span
+                    class="nav-badge"
+                    id="proofNotificationCount"
+                    style="display:none;"
+                >
+                    0
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div class="admin-info">
+
+                    <strong data-admin-name>
+                        Administrador
+                    </strong>
+
+                    <span data-admin-email>
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <span>
+                    🚪
+                </span>
+
+                Terminar sessão
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ======================================
+         CONTEÚDO PRINCIPAL
+    ======================================= -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================
+             HEADER
+        =================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+
+                    ☰
+
+                </button>
+
+
+                <div>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Visão geral do Café Chimoio
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <!-- NOTIFICAÇÕES -->
+
+                <button
+                    type="button"
+                    class="notification-button"
+                    id="notificationButton"
+                    title="Notificações"
+                >
+
+                    🔔
+
+                    <span
+                        class="notification-count"
+                        id="notificationCount"
+                        style="display:none;"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+                <!-- ATUALIZAR -->
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshButton"
+                >
+
+                    ↻
+
+                    <span>
+                        Atualizar
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================
+             DASHBOARD
+        =================================== -->
+
+        <section
+            class="dashboard-section"
+            id="dashboardSection"
+        >
+
+
+            <!-- =================================
+                 CARDS DE ESTATÍSTICAS
+            ================================== -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total de pedidos
+                        </span>
+
+                        <strong id="totalPedidos">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏳
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Pedidos pendentes
+                        </span>
+
+                        <strong id="pedidosPendentes">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🍳
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Em preparação
+                        </span>
+
+                        <strong id="pedidosPreparacao">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🔔
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Prontos
+                        </span>
+
+                        <strong id="pedidosProntos">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Entregues
+                        </span>
+
+                        <strong id="pedidosEntregues">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Faturamento
+                        </span>
+
+                        <strong id="faturamento">
+                            0,00 MT
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card payment-card">
+
+                    <div class="stat-icon">
+                        💳
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Comprovativos pendentes
+                        </span>
+
+                        <strong
+                            id="comprovativosPendentes"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 PEDIDOS RECENTES
+            ================================== -->
+
+            <div class="section-card">
+
+
+                <div class="section-card-header">
+
+                    <div>
+
+                        <h2>
+                            Pedidos recentes
+                        </h2>
+
+                        <p>
+                            Últimos pedidos recebidos
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="view-all-button"
+                        data-section="pedidos"
+                    >
+
+                        Ver todos
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="orders-container"
+                    id="recentOrders"
+                >
+
+                    <div class="loading-cell">
+
+                        Carregando pedidos...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================
+             SEÇÃO PEDIDOS
+        =================================== -->
+
+        <section
+            class="dashboard-section page-section"
+            id="pedidosSection"
+            style="display:none;"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>
+                        Pedidos
+                    </h2>
+
+                    <p>
+                        Gerencie todos os pedidos do Café Chimoio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="filters-bar">
+
+                <div class="search-box">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="search"
+                        id="searchOrders"
+                        placeholder="Pesquisar pedido, cliente ou telefone..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="section-card">
+
+                <div
+                    class="orders-container"
+                    id="ordersList"
+                >
+
+                    <div class="loading-cell">
+
+                        Carregando pedidos...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================
+             SEÇÃO PAGAMENTOS
+        =================================== -->
+
+        <section
+            class="dashboard-section page-section"
+            id="pagamentosSection"
+            style="display:none;"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>
+                        Pagamentos
+                    </h2>
+
+                    <p>
+                        Verifique os comprovativos enviados pelos clientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-card">
+
+                <div class="payment-info-box">
+
+                    <div class="payment-info-icon">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Confirmação de pagamentos
+                        </strong>
+
+                        <p>
+                            Quando um cliente enviar um comprovativo,
+                            ele aparecerá nos pedidos com o estado
+                            "Comprovativo enviado".
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="orders-container"
+                    id="paymentOrdersList"
+                >
+
+                    <div class="loading-cell">
+
+                        Carregando pagamentos...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ======================================
+         MODAL DO PEDIDO
+    ======================================= -->
+
+    <div
+        class="modal-overlay hidden"
+        id="orderModal"
+    >
+
+        <div
+            class="order-modal"
+            role="dialog"
+            aria-modal="true"
+        >
+
+
+            <!-- HEADER DO MODAL -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span>
+                        Pedido
+                    </span>
+
+                    <h2 id="modalOrderNumber">
+                        —
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeOrderModal"
+                    aria-label="Fechar"
+                >
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+
+            <!-- CONTEÚDO -->
+
+            <div
+                class="modal-body"
+                id="modalOrderContent"
+            >
+
+                <div class="loading-cell">
+
+                    Carregando pedido...
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ======================================
+         NOTIFICAÇÕES
+    ======================================= -->
+
+    <div
+        id="adminNotifications"
+        class="admin-notifications"
+    ></div>
+
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ======================================= -->
+
+    <script src="js/dashboard.js"></script>
+
+
+    <!-- ======================================
+         NAVEGAÇÃO DO DASHBOARD
+    ======================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const navItems =
+                    document.querySelectorAll(
+                        ".nav-item, .view-all-button"
+                    );
+
+
+                const sections = {
+
+                    dashboard:
+                        document.getElementById(
+                            "dashboardSection"
+                        ),
+
+                    pedidos:
+                        document.getElementById(
+                            "pedidosSection"
+                        ),
+
+                    pagamentos:
+                        document.getElementById(
+                            "pagamentosSection"
+                        )
+
+                };
+
+
+                function mostrarSecao(
+                    nome
+                ) {
+
+                    Object.values(
+                        sections
+                    ).forEach(
+                        section => {
+
+                            if (section) {
+
+                                section.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+
+                    if (
+                        sections[nome]
+                    ) {
+
+                        sections[nome].style.display =
+                            "";
+
+                    }
+
+
+                    document
+                        .querySelectorAll(
+                            ".nav-item"
+                        )
+                        .forEach(
+                            item => {
+
+                                item.classList.toggle(
+                                    "active",
+                                    item.dataset.section ===
+                                    nome
+                                );
+
+                            }
+                        );
+
+
+                    if (
+                        nome ===
+                        "pagamentos"
+                    ) {
+
+                        carregarPagamentos();
+
+                    }
+
+                }
+
+
+                navItems.forEach(
+                    item => {
+
+                        item.addEventListener(
+                            "click",
+                            () => {
+
+                                const section =
+                                    item.dataset.section;
+
+
+                                if (
+                                    section &&
+                                    sections[section]
+                                ) {
+
+                                    mostrarSecao(
+                                        section
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                // Menu mobile
+
+                const mobileMenu =
+                    document.getElementById(
+                        "mobileMenuButton"
+                    );
+
+
+                const sidebar =
+                    document.getElementById(
+                        "sidebar"
+                    );
+
+
+                if (
+                    mobileMenu &&
+                    sidebar
+                ) {
+
+                    mobileMenu.addEventListener(
+                        "click",
+                        () => {
+
+                            sidebar.classList.toggle(
+                                "open"
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                // Fechar sidebar ao clicar
+                // numa opção no telemóvel
+
+                document
+                    .querySelectorAll(
+                        ".nav-item"
+                    )
+                    .forEach(
+                        item => {
+
+                            item.addEventListener(
+                                "click",
+                                () => {
+
+                                    if (
+                                        window.innerWidth <=
+                                        900 &&
+                                        sidebar
+                                    ) {
+
+                                        sidebar.classList.remove(
+                                            "open"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
+
+            }
+        );
+
+
+
+        // ==================================
+        // PAGAMENTOS
+        // ==================================
+
+        async function carregarPagamentos() {
+
+            const container =
+                document.getElementById(
+                    "paymentOrdersList"
+                );
+
+
+            if (!container) {
+                return;
+            }
+
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        "/api/admin/pedidos"
+                    );
+
+
+                if (
+                    resposta.status ===
+                    401
+                ) {
+
+                    window.location.href =
+                        "/admin";
+
+                    return;
+
+                }
+
+
+                const dados =
+                    await resposta.json();
+
+
+                if (!dados.success) {
+
+                    container.innerHTML = `
+
+                        <div class="empty-state">
+
+                            Não foi possível carregar os pagamentos.
+
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                const pedidos =
+                    (dados.pedidos || [])
+                    .filter(
+                        pedido =>
+                            pedido.status_pagamento ===
+                            "COMPROVATIVO_ENVIADO"
+                    );
+
+
+                if (
+                    pedidos.length === 0
+                ) {
+
+                    container.innerHTML = `
+
+                        <div class="empty-state">
+
+                            <div>
+                                ✓
+                            </div>
+
+                            <strong>
+                                Nenhum pagamento pendente
+                            </strong>
+
+                            <p>
+                                Não existem comprovativos aguardando confirmação.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                container.innerHTML =
+                    pedidos.map(
+                        pedido =>
+                            criarPagamentoHTML(
+                                pedido
+                            )
+                    ).join("");
+
+
+                container
+                    .querySelectorAll(
+                        ".view-order-button"
+                    )
+                    .forEach(
+                        button => {
+
+                            button.addEventListener(
+                                "click",
+                                () => {
+
+                                    abrirPedido(
+                                        Number(
+                                            button.dataset.orderId
+                                        )
+                                    );
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                container.innerHTML = `
+
+                    <div class="empty-state">
+
+                        Erro ao carregar pagamentos.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        function criarPagamentoHTML(
+            pedido
+        ) {
+
+            return `
+
+                <div class="order-card has-payment-proof">
+
+                    <div class="order-card-main">
+
+                        <div class="order-info">
+
+                            <div class="order-number">
+
+                                #${escapeHTML(
+                                    pedido.numero
+                                )}
+
+                            </div>
+
+                            <div class="order-client">
+
+                                ${escapeHTML(
+                                    pedido.cliente_nome
+                                )}
+
+                            </div>
+
+                            <div class="order-phone">
+
+                                ${escapeHTML(
+                                    pedido.cliente_telefone
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="order-financial">
+
+                            <strong>
+
+                                ${formatMoney(
+                                    pedido.valor_entrada
+                                )}
+
+                            </strong>
+
+                            <span>
+                                Entrada 50%
+                            </span>
+
+                        </div>
+
+
+                        <div class="order-status">
+
+                            <span class="payment-badge payment-comprovativo-enviado">
+
+                                Comprovativo enviado
+
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="view-order-button"
+                            data-order-id="${pedido.id}"
+                        >
+
+                            Ver comprovativo
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

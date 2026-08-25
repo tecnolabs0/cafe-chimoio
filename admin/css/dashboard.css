@@ -1,0 +1,3023 @@
+/* =====================================================
+   CAFÉ CHIMOIO
+   ADMIN DASHBOARD
+   ===================================================== */
+
+:root {
+
+    --primary: #8b4513;
+    --primary-dark: #5d2e0c;
+    --primary-light: #c77b3c;
+
+    --background: #f6f3ef;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+
+    --text: #241b16;
+    --text-soft: #756b65;
+    --border: #e9e1da;
+
+    --success: #16834b;
+    --success-bg: #e9f8f0;
+
+    --warning: #c27a00;
+    --warning-bg: #fff5df;
+
+    --danger: #c73535;
+    --danger-bg: #fff0f0;
+
+    --info: #2563eb;
+    --info-bg: #edf3ff;
+
+    --shadow:
+        0 10px 30px rgba(53, 32, 19, 0.07);
+
+    --shadow-hover:
+        0 16px 40px rgba(53, 32, 19, 0.12);
+
+    --radius: 18px;
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 260px;
+
+    background:
+        var(--surface);
+
+    border-right:
+        1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 1000;
+
+}
+
+
+.sidebar-logo {
+
+    height: 90px;
+
+    padding:
+        20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.logo-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(139, 69, 19, 0.25);
+
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.logo-text strong {
+
+    font-size: 16px;
+
+}
+
+
+.logo-text span {
+
+    font-size: 11px;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.sidebar-nav {
+
+    padding: 20px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.nav-item {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color:
+        var(--text-soft);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 15px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.nav-item span:first-child {
+
+    font-size: 18px;
+
+}
+
+
+.nav-item:hover {
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--primary);
+
+}
+
+
+.nav-item.active {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(139, 69, 19, 0.18);
+
+}
+
+
+.nav-badge {
+
+    margin-left: auto;
+
+    min-width: 21px;
+
+    height: 21px;
+
+    padding: 0 6px;
+
+    border-radius: 50px;
+
+    background:
+        var(--danger);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 11px;
+
+}
+
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding: 15px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.admin-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+        10px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.admin-avatar {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 700;
+
+}
+
+
+.admin-info {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.admin-info strong {
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.admin-info span {
+
+    font-size: 10px;
+
+    color:
+        var(--text-soft);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.logout-button {
+
+    width: 100%;
+
+    height: 43px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: white;
+
+    color:
+        var(--danger);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.logout-button:hover {
+
+    background:
+        var(--danger-bg);
+
+    border-color:
+        #f1caca;
+
+}
+
+
+/* =====================================================
+   MAIN
+   ===================================================== */
+
+.main-content {
+
+    margin-left: 260px;
+
+    min-height: 100vh;
+
+}
+
+
+.topbar {
+
+    min-height: 90px;
+
+    padding:
+        18px 30px;
+
+    background:
+        rgba(255,255,255,0.95);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 500;
+
+}
+
+
+.topbar-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.topbar h1 {
+
+    font-size: 24px;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.topbar p {
+
+    margin-top: 4px;
+
+    color:
+        var(--text-soft);
+
+    font-size: 13px;
+
+}
+
+
+.topbar-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.notification-button,
+.refresh-button {
+
+    height: 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        white;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.notification-button {
+
+    width: 42px;
+
+    font-size: 18px;
+
+    position: relative;
+
+}
+
+
+.notification-button:hover,
+.refresh-button:hover {
+
+    border-color:
+        var(--primary-light);
+
+    color:
+        var(--primary);
+
+}
+
+
+.refresh-button {
+
+    padding:
+        0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-weight: 600;
+
+}
+
+
+.refresh-button.loading {
+
+    opacity: 0.6;
+
+    pointer-events: none;
+
+}
+
+
+.refresh-button.loading:first-letter {
+
+    animation:
+        rotate 1s linear infinite;
+
+}
+
+
+.notification-count {
+
+    position: absolute;
+
+    right: -5px;
+
+    top: -6px;
+
+    min-width: 19px;
+
+    height: 19px;
+
+    padding: 0 5px;
+
+    border-radius: 50px;
+
+    background:
+        var(--danger);
+
+    color: white;
+
+    border: 2px solid white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.mobile-menu-button {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 20px;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+   ===================================================== */
+
+.dashboard-section {
+
+    padding:
+        30px;
+
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 17px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-card {
+
+    min-height: 125px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow-hover);
+
+}
+
+
+.stat-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        #f7eee7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+}
+
+
+.stat-content {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.stat-content span {
+
+    color:
+        var(--text-soft);
+
+    font-size: 12px;
+
+}
+
+
+.stat-content strong {
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+}
+
+
+.payment-card .stat-icon {
+
+    background:
+        var(--warning-bg);
+
+}
+
+
+/* =====================================================
+   SECTION CARD
+   ===================================================== */
+
+.section-card {
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow);
+
+    overflow: hidden;
+
+}
+
+
+.section-card-header {
+
+    min-height: 80px;
+
+    padding:
+        18px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.section-card-header h2 {
+
+    font-size: 17px;
+
+}
+
+
+.section-card-header p {
+
+    color:
+        var(--text-soft);
+
+    font-size: 12px;
+
+    margin-top: 4px;
+
+}
+
+
+.view-all-button {
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+        var(--primary);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    gap: 6px;
+
+    align-items: center;
+
+}
+
+
+/* =====================================================
+   PEDIDOS
+   ===================================================== */
+
+.orders-container {
+
+    width: 100%;
+
+}
+
+
+.order-card {
+
+    padding:
+        17px 22px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.order-card:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.order-card:hover {
+
+    background:
+        #fcfaf8;
+
+}
+
+
+.order-card-main {
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        1fr
+        1.2fr
+        auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.order-info {
+
+    min-width: 0;
+
+}
+
+
+.order-number {
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+    color:
+        var(--primary);
+
+}
+
+
+.order-client {
+
+    font-weight: 650;
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+}
+
+
+.order-phone {
+
+    color:
+        var(--text-soft);
+
+    font-size: 11px;
+
+    margin-top: 3px;
+
+}
+
+
+.order-financial {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.order-financial strong {
+
+    font-size: 14px;
+
+}
+
+
+.order-financial span {
+
+    font-size: 11px;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.order-status {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+}
+
+
+.status-badge,
+.payment-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 26px;
+
+    padding:
+        4px 9px;
+
+    border-radius: 50px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.status-pendente-pagamento {
+
+    background:
+        var(--warning-bg);
+
+    color:
+        var(--warning);
+
+}
+
+
+.status-aguardando-pagamento {
+
+    background:
+        var(--warning-bg);
+
+    color:
+        var(--warning);
+
+}
+
+
+.status-confirmado {
+
+    background:
+        var(--success-bg);
+
+    color:
+        var(--success);
+
+}
+
+
+.status-em-preparacao {
+
+    background:
+        var(--info-bg);
+
+    color:
+        var(--info);
+
+}
+
+
+.status-pronto {
+
+    background:
+        #eee9ff;
+
+    color:
+        #6845c7;
+
+}
+
+
+.status-entregue {
+
+    background:
+        var(--success-bg);
+
+    color:
+        var(--success);
+
+}
+
+
+.status-cancelado {
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+}
+
+
+.payment-pendente {
+
+    background:
+        var(--warning-bg);
+
+    color:
+        var(--warning);
+
+}
+
+
+.payment-comprovativo-enviado {
+
+    background:
+        var(--info-bg);
+
+    color:
+        var(--info);
+
+}
+
+
+.payment-confirmado {
+
+    background:
+        var(--success-bg);
+
+    color:
+        var(--success);
+
+}
+
+
+.payment-rejeitado {
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+}
+
+
+.view-order-button {
+
+    min-height: 38px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        white;
+
+    color:
+        var(--primary);
+
+    font-weight: 700;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.view-order-button:hover {
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    border-color:
+        var(--primary);
+
+}
+
+
+.has-payment-proof {
+
+    border-left:
+        3px solid var(--info);
+
+}
+
+
+.proof-alert {
+
+    margin-top: 13px;
+
+    padding:
+        10px 13px;
+
+    background:
+        var(--info-bg);
+
+    color:
+        var(--info);
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+/* =====================================================
+   EMPTY / LOADING
+   ===================================================== */
+
+.empty-state,
+.loading-cell {
+
+    min-height: 160px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.empty-state div {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-state strong {
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+}
+
+
+.empty-state p {
+
+    margin-top: 6px;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   PAGE HEADERS
+   ===================================================== */
+
+.page-header {
+
+    margin-bottom: 22px;
+
+}
+
+
+.page-header h2 {
+
+    font-size: 24px;
+
+}
+
+
+.page-header p {
+
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+/* =====================================================
+   FILTROS
+   ===================================================== */
+
+.filters-bar {
+
+    margin-bottom: 18px;
+
+}
+
+
+.search-box {
+
+    max-width: 520px;
+
+    height: 48px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        0 14px;
+
+}
+
+
+.search-box span {
+
+    font-size: 16px;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color:
+        var(--text);
+
+    font-size: 13px;
+
+}
+
+
+.search-box input::placeholder {
+
+    color:
+        #aaa09a;
+
+}
+
+
+/* =====================================================
+   PAGAMENTOS
+   ===================================================== */
+
+.payment-info-box {
+
+    margin: 20px;
+
+    padding: 17px;
+
+    background:
+        var(--info-bg);
+
+    border-radius: 13px;
+
+    display: flex;
+
+    gap: 13px;
+
+    align-items: flex-start;
+
+}
+
+
+.payment-info-icon {
+
+    font-size: 23px;
+
+}
+
+
+.payment-info-box strong {
+
+    font-size: 14px;
+
+}
+
+
+.payment-info-box p {
+
+    color:
+        #506080;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-top: 5px;
+
+}
+
+
+/* =====================================================
+   MODAL
+   ===================================================== */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(20, 12, 7, 0.65);
+
+    backdrop-filter:
+        blur(5px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 3000;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.2s ease;
+
+}
+
+
+.modal-overlay.hidden {
+
+    display: none;
+
+}
+
+
+.order-modal {
+
+    width: min(
+        900px,
+        100%
+    );
+
+    max-height:
+        90vh;
+
+    background:
+        white;
+
+    border-radius:
+        22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.25);
+
+    display: flex;
+
+    flex-direction: column;
+
+    animation:
+        modalIn 0.2s ease;
+
+}
+
+
+.modal-header {
+
+    min-height: 80px;
+
+    padding:
+        17px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.modal-header span {
+
+    font-size: 11px;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.modal-header h2 {
+
+    margin-top: 3px;
+
+    font-size: 20px;
+
+    color:
+        var(--primary);
+
+}
+
+
+.modal-close {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.modal-close:hover {
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+}
+
+
+.modal-body {
+
+    padding:
+        22px;
+
+    overflow-y: auto;
+
+}
+
+
+/* =====================================================
+   DETALHES
+   ===================================================== */
+
+.detail-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.detail-item {
+
+    padding: 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.detail-item span {
+
+    display: block;
+
+    color:
+        var(--text-soft);
+
+    font-size: 10px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.detail-item strong {
+
+    font-size: 12px;
+
+}
+
+
+.items-list {
+
+    margin-top: 22px;
+
+}
+
+
+.items-list h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.order-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding:
+        11px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+    font-size: 12px;
+
+}
+
+
+.order-item:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+/* =====================================================
+   COMPROVATIVO
+   ===================================================== */
+
+.payment-proof {
+
+    margin-top: 22px;
+
+    padding: 17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.payment-proof-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.payment-proof-header h3 {
+
+    font-size: 14px;
+
+}
+
+
+.payment-proof-header p {
+
+    margin-top: 5px;
+
+    color:
+        var(--text-soft);
+
+    font-size: 11px;
+
+}
+
+
+.payment-status {
+
+    padding:
+        6px 10px;
+
+    border-radius: 50px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.payment-status.waiting {
+
+    background:
+        var(--warning-bg);
+
+    color:
+        var(--warning);
+
+}
+
+
+.payment-status.confirmed {
+
+    background:
+        var(--success-bg);
+
+    color:
+        var(--success);
+
+}
+
+
+.payment-status.rejected {
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+}
+
+
+.proof-image-link {
+
+    display: block;
+
+    background:
+        #eee;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+}
+
+
+.proof-image {
+
+    width: 100%;
+
+    max-height: 430px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+.payment-actions {
+
+    margin-top: 15px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.confirm-payment-button,
+.reject-payment-button {
+
+    min-height: 45px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.confirm-payment-button {
+
+    background:
+        var(--success);
+
+    color: white;
+
+}
+
+
+.confirm-payment-button:hover {
+
+    background:
+        #0f693b;
+
+}
+
+
+.reject-payment-button {
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+}
+
+
+.reject-payment-button:hover {
+
+    background:
+        #ffdede;
+
+}
+
+
+.no-proof {
+
+    margin-top: 22px;
+
+    padding: 25px;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.no-proof div {
+
+    font-size: 28px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.no-proof strong {
+
+    color:
+        var(--text);
+
+    font-size: 13px;
+
+}
+
+
+.no-proof p {
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================================
+   STATUS SELECT
+   ===================================================== */
+
+.modal-status {
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.modal-status label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.modal-status select {
+
+    width: 100%;
+
+    height: 45px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    padding:
+        0 12px;
+
+    color:
+        var(--text);
+
+    outline: none;
+
+}
+
+
+.modal-status select:focus {
+
+    border-color:
+        var(--primary);
+
+}
+
+
+/* =====================================================
+   NOTIFICAÇÕES
+   ===================================================== */
+
+.admin-notifications {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    width:
+        min(
+            370px,
+            calc(100vw - 40px)
+        );
+
+    z-index: 5000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.admin-notification {
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-left:
+        4px solid var(--primary);
+
+    border-radius: 13px;
+
+    padding:
+        14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.15);
+
+    animation:
+        notificationIn 0.3s ease;
+
+}
+
+
+.admin-notification.hide {
+
+    opacity: 0;
+
+    transform:
+        translateX(30px);
+
+    transition:
+        0.35s ease;
+
+}
+
+
+.admin-notification-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 10px;
+
+    background:
+        #f7eee7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.admin-notification-content {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.admin-notification-content strong {
+
+    font-size: 12px;
+
+}
+
+
+.admin-notification-content span {
+
+    color:
+        var(--text-soft);
+
+    font-size: 11px;
+
+}
+
+
+.admin-notification-close {
+
+    width: 27px;
+
+    height: 27px;
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+        var(--text-soft);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+   ===================================================== */
+
+@keyframes modalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.96)
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes notificationIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+@keyframes rotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVO - TABLET
+   ===================================================== */
+
+@media (
+    max-width: 1200px
+) {
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .order-card-main {
+
+        grid-template-columns:
+            1.4fr
+            1fr
+            1fr
+            auto;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVO - MOBILE
+   ===================================================== */
+
+@media (
+    max-width: 900px
+) {
+
+    .sidebar {
+
+        transform:
+            translateX(-100%);
+
+        transition:
+            transform 0.25s ease;
+
+        box-shadow:
+            10px 0 30px
+            rgba(0,0,0,0.15);
+
+    }
+
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .main-content {
+
+        margin-left: 0;
+
+    }
+
+
+    .mobile-menu-button {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+
+    .topbar {
+
+        padding:
+            15px 18px;
+
+    }
+
+
+    .topbar h1 {
+
+        font-size: 20px;
+
+    }
+
+
+    .refresh-button span {
+
+        display: none;
+
+    }
+
+
+    .refresh-button {
+
+        width: 42px;
+
+        justify-content: center;
+
+        padding: 0;
+
+    }
+
+
+    .dashboard-section {
+
+        padding:
+            20px 15px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 11px;
+
+    }
+
+
+    .stat-card {
+
+        min-height: 105px;
+
+        padding: 14px;
+
+    }
+
+
+    .stat-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 18px;
+
+    }
+
+
+    .stat-content strong {
+
+        font-size: 18px;
+
+    }
+
+
+    .order-card {
+
+        padding:
+            15px;
+
+    }
+
+
+    .order-card-main {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 13px;
+
+    }
+
+
+    .view-order-button {
+
+        width: 100%;
+
+    }
+
+
+    .detail-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVO - TELEFONE PEQUENO
+   ===================================================== */
+
+@media (
+    max-width: 560px
+) {
+
+    .topbar {
+
+        min-height: 70px;
+
+    }
+
+
+    .topbar p {
+
+        display: none;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .stat-card {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap: 10px;
+
+    }
+
+
+    .stat-content {
+
+        width: 100%;
+
+    }
+
+
+    .stat-content span {
+
+        font-size: 10px;
+
+    }
+
+
+    .stat-content strong {
+
+        font-size: 17px;
+
+    }
+
+
+    .section-card-header {
+
+        padding:
+            15px;
+
+    }
+
+
+    .section-card-header p {
+
+        display: none;
+
+    }
+
+
+    .order-card-main {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .order-status {
+
+        flex-direction:
+            row;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .detail-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .payment-actions {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .modal-overlay {
+
+        padding: 8px;
+
+    }
+
+
+    .order-modal {
+
+        max-height:
+            95vh;
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .modal-body {
+
+        padding:
+            15px;
+
+    }
+
+
+    .payment-proof-header {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .admin-notifications {
+
+        top: 10px;
+
+        right: 10px;
+
+        width:
+            calc(100vw - 20px);
+
+    }
+
+}
+
+/* ==========================================
+   NOTIFICAÇÕES DO ADMIN
+========================================== */
+
+#adminNotifications {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 99999;
+
+    width: min(390px, calc(100vw - 32px));
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   NOTIFICAÇÃO
+========================================== */
+
+.admin-notification {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 16px 18px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.98),
+            rgba(255,248,240,.98)
+        );
+
+    border: 1px solid rgba(180, 95, 20, .18);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.18),
+        0 5px 15px rgba(0,0,0,.10);
+
+    pointer-events: auto;
+
+    animation:
+        notificationEnter .45s cubic-bezier(.2,.8,.2,1);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   BARRA LATERAL
+========================================== */
+
+.admin-notification::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff9d2e,
+            #d96b00
+        );
+
+}
+
+
+/* ==========================================
+   ÍCONE
+========================================== */
+
+.admin-notification-icon {
+
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1dc,
+            #ffd39b
+        );
+
+    font-size: 24px;
+
+    animation:
+        notificationBell 1s ease-in-out infinite;
+}
+
+
+/* ==========================================
+   CONTEÚDO
+========================================== */
+
+.admin-notification-content {
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.admin-notification-content strong {
+
+    color: #222;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+.admin-notification-content span {
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+}
+
+
+/* ==========================================
+   FECHAR
+========================================== */
+
+.admin-notification-close {
+
+    margin-left: auto;
+
+    width: 30px;
+    height: 30px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.06);
+
+    color: #777;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.admin-notification-close:hover {
+
+    background: rgba(0,0,0,.12);
+
+    color: #222;
+
+    transform: scale(1.08);
+
+}
+
+
+/* ==========================================
+   SAÍDA
+========================================== */
+
+.admin-notification.hide {
+
+    animation:
+        notificationExit .4s ease forwards;
+
+}
+
+
+/* ==========================================
+   ANIMAÇÕES
+========================================== */
+
+@keyframes notificationEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(120px)
+            scale(.92);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes notificationExit {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateX(120px)
+            scale(.92);
+
+    }
+
+}
+
+
+@keyframes notificationBell {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    15% {
+
+        transform:
+            rotate(12deg);
+
+    }
+
+    30% {
+
+        transform:
+            rotate(-12deg);
+
+    }
+
+    45% {
+
+        transform:
+            rotate(8deg);
+
+    }
+
+    60% {
+
+        transform:
+            rotate(-5deg);
+
+    }
+
+    75% {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* ==========================================
+   BOTÃO DE NOTIFICAÇÕES
+========================================== */
+
+#notificationButton.has-notifications {
+
+    animation:
+        notificationButtonPulse 1.2s ease-in-out infinite;
+
+}
+
+
+@keyframes notificationButtonPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+/* ==========================================
+   CONTADOR
+========================================== */
+
+#notificationCount {
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background: #e53935;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 4px 12px rgba(229,57,53,.35);
+
+}
+
+
+/* ==========================================
+   ALERTA DE NOVO PEDIDO
+========================================== */
+
+.order-card.new-order {
+
+    animation:
+        newOrderPulse 1.5s ease-in-out 3;
+
+}
+
+
+@keyframes newOrderPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 4px 15px rgba(0,0,0,.06);
+
+    }
+
+    50% {
+
+        transform: scale(1.015);
+
+        box-shadow:
+            0 10px 35px rgba(255,140,30,.28);
+
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media (max-width: 600px) {
+
+    #adminNotifications {
+
+        top: 12px;
+
+        right: 12px;
+
+        width:
+            calc(100vw - 24px);
+
+    }
+
+
+    .admin-notification {
+
+        padding: 14px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .admin-notification-icon {
+
+        width: 42px;
+        height: 42px;
+
+        flex-basis: 42px;
+
+        font-size: 21px;
+
+    }
+
+}

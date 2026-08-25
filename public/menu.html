@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | Café Chimoio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- FUNDO ANIMADO -->
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+
+    <!-- EMOJIS FLUTUANTES -->
+    <div class="menu-food-world" aria-hidden="true">
+        <span class="menu-floating-food food-float-1">🍔</span>
+        <span class="menu-floating-food food-float-2">🍗</span>
+        <span class="menu-floating-food food-float-3">🍟</span>
+        <span class="menu-floating-food food-float-4">☕</span>
+        <span class="menu-floating-food food-float-5">🥪</span>
+        <span class="menu-floating-food food-float-6">🍳</span>
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">☕</span>
+
+            <span class="logo-text">
+                CAFÉ
+                <strong>CHIMOIO</strong>
+            </span>
+        </a>
+
+
+        <nav class="nav" id="nav">
+
+            <a href="index.html">Início</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="sobre.html">Sobre Nós</a>
+            <a href="#contacto">Contacto</a>
+
+            <a href="pedido.html" class="order-nav">
+                🛒 Pedido
+            </a>
+
+        </nav>
+
+
+        <button class="menu-mobile" id="menuMobile" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO DO MENU -->
+        <section class="menu-hero">
+
+            <div class="menu-hero-content">
+
+                <div class="badge">
+                    <span></span>
+                    CAFÉ CHIMOIO
+                </div>
+
+                <h1>
+                    Escolha o seu
+                    <span>prato favorito.</span>
+                </h1>
+
+                <p>
+                    Explore o nosso menu e descubra hambúrgueres,
+                    frango, sandes, pratos, salgados, ovos e bebidas
+                    quentes.
+                </p>
+
+            </div>
+
+
+            <div class="menu-hero-food">
+                <div class="menu-main-emoji">🍽️</div>
+
+                <span class="hero-small-food hero-food-1">🍔</span>
+                <span class="hero-small-food hero-food-2">🍗</span>
+                <span class="hero-small-food hero-food-3">🍟</span>
+                <span class="hero-small-food hero-food-4">☕</span>
+            </div>
+
+        </section>
+
+
+        <!-- FILTROS -->
+        <section class="menu-navigation">
+
+            <div class="menu-nav-container">
+
+                <button class="category-btn active" data-category="todos">
+                    🍽️ Todos
+                </button>
+
+                <button class="category-btn" data-category="salgados">
+                    🥟 Salgados
+                </button>
+
+                <button class="category-btn" data-category="ovos">
+                    🍳 Ovos
+                </button>
+
+                <button class="category-btn" data-category="hamburgers">
+                    🍔 Hamburgers
+                </button>
+
+                <button class="category-btn" data-category="frangos">
+                    🍗 Frangos
+                </button>
+
+                <button class="category-btn" data-category="sandes">
+                    🥪 Sandes
+                </button>
+
+                <button class="category-btn" data-category="tostas">
+                    🍞 Tostas
+                </button>
+
+                <button class="category-btn" data-category="pregos">
+                    🥩 Pregos
+                </button>
+
+                <button class="category-btn" data-category="pratos">
+                    🍛 Pratos
+                </button>
+
+                <button class="category-btn" data-category="bebidas">
+                    ☕ Bebidas
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- MENU -->
+        <section class="menu-section">
+
+            <div class="menu-container">
+
+
+                <!-- SALGADOS -->
+                <div class="menu-category" data-category="salgados">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🥟</div>
+
+                        <div>
+                            <span>ENTRADAS E PETISCOS</span>
+                            <h2>Salgados</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🥟</div>
+                            <div class="product-details">
+                                <h3>Chamussa de Bife</h3>
+                                <p>Deliciosa chamussa recheada.</p>
+                            </div>
+                            <strong class="price">40 MT</strong>
+                            <button class="add-product" data-name="Chamussa de Bife" data-price="40">
+                                +
+                            </button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥟</div>
+                            <div class="product-details">
+                                <h3>Rissol de Camarão</h3>
+                                <p>Rissol saboroso de camarão.</p>
+                            </div>
+                            <strong class="price">40 MT</strong>
+                            <button class="add-product" data-name="Rissol de Camarão" data-price="40">
+                                +
+                            </button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍟</div>
+                            <div class="product-details">
+                                <h3>Dose de Batata</h3>
+                                <p>Batata frita crocante.</p>
+                            </div>
+                            <strong class="price">100 MT</strong>
+                            <button class="add-product" data-name="Dose de Batata" data-price="100">
+                                +
+                            </button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥤</div>
+                            <div class="product-details">
+                                <h3>Boost</h3>
+                                <p>Bebida energética.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Boost" data-price="150">
+                                +
+                            </button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OVOS -->
+                <div class="menu-category" data-category="ovos">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🍳</div>
+
+                        <div>
+                            <span>PREPARADO NA HORA</span>
+                            <h2>Ovos</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🍳</div>
+                            <div class="product-details">
+                                <h3>Ovo Estrelado c/Batata</h3>
+                                <p>Ovo estrelado acompanhado de batata.</p>
+                            </div>
+                            <strong class="price">120 MT</strong>
+                            <button class="add-product" data-name="Ovo Estrelado c/Batata" data-price="120">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍳</div>
+                            <div class="product-details">
+                                <h3>Omelete c/Batata</h3>
+                                <p>Omelete acompanhada de batata.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Omelete c/Batata" data-price="150">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍅</div>
+                            <div class="product-details">
+                                <h3>Omelete Tomate/Cebola</h3>
+                                <p>Omelete com tomate e cebola.</p>
+                            </div>
+                            <strong class="price">170 MT</strong>
+                            <button class="add-product" data-name="Omelete Tomate/Cebola" data-price="170">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🧀</div>
+                            <div class="product-details">
+                                <h3>Omelete de Queijo</h3>
+                                <p>Omelete com queijo.</p>
+                            </div>
+                            <strong class="price">180 MT</strong>
+                            <button class="add-product" data-name="Omelete de Queijo" data-price="180">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🐟</div>
+                            <div class="product-details">
+                                <h3>Omelete de Atum</h3>
+                                <p>Omelete preparada com atum.</p>
+                            </div>
+                            <strong class="price">200 MT</strong>
+                            <button class="add-product" data-name="Omelete de Atum" data-price="200">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HAMBURGERS -->
+                <div class="menu-category" data-category="hamburgers">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🍔</div>
+
+                        <div>
+                            <span>OS FAVORITOS DA CASA</span>
+                            <h2>Hamburgers</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card featured-product">
+                            <div class="popular-tag">POPULAR 🔥</div>
+                            <div class="product-icon">🍔</div>
+                            <div class="product-details">
+                                <h3>Hamburger Simples</h3>
+                                <p>Hamburger saboroso e preparado na hora.</p>
+                            </div>
+                            <strong class="price">110 MT</strong>
+                            <button class="add-product" data-name="Hamburger Simples" data-price="110">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍔</div>
+                            <div class="product-details">
+                                <h3>Hamburger Completo</h3>
+                                <p>Uma refeição completa.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Hamburger Completo" data-price="150">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍔🍟</div>
+                            <div class="product-details">
+                                <h3>Hamburger Completo c/Batata</h3>
+                                <p>Hamburger completo com batata.</p>
+                            </div>
+                            <strong class="price">250 MT</strong>
+                            <button class="add-product" data-name="Hamburger Completo c/Batata" data-price="250">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍔</div>
+                            <div class="product-details">
+                                <h3>Hamburger de Frango</h3>
+                                <p>Hamburger preparado com frango.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Hamburger de Frango" data-price="150">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍔🍔🍟</div>
+                            <div class="product-details">
+                                <h3>Hamburger Duplo c/Batata</h3>
+                                <p>Dupla dose de sabor.</p>
+                            </div>
+                            <strong class="price">300 MT</strong>
+                            <button class="add-product" data-name="Hamburger Duplo c/Batata" data-price="300">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FRANGOS -->
+                <div class="menu-category" data-category="frangos">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🍗</div>
+
+                        <div>
+                            <span>ESPECIALIDADE</span>
+                            <h2>Frangos</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗</div>
+                            <div class="product-details">
+                                <h3>1/4 Frango Simples</h3>
+                                <p>Porção de frango.</p>
+                            </div>
+                            <strong class="price">100 MT</strong>
+                            <button class="add-product" data-name="1/4 Frango Simples" data-price="100">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍟</div>
+                            <div class="product-details">
+                                <h3>1/4 Frango c/Batata</h3>
+                                <p>Frango com batata.</p>
+                            </div>
+                            <strong class="price">200 MT</strong>
+                            <button class="add-product" data-name="1/4 Frango c/Batata" data-price="200">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍗🍟</div>
+                            <div class="product-details">
+                                <h3>1/2 Frango c/Batata</h3>
+                                <p>Meio frango com batata.</p>
+                            </div>
+                            <strong class="price">400 MT</strong>
+                            <button class="add-product" data-name="1/2 Frango c/Batata" data-price="400">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍟</div>
+                            <div class="product-details">
+                                <h3>1 Frango c/Batata</h3>
+                                <p>Frango inteiro com batata.</p>
+                            </div>
+                            <strong class="price">800 MT</strong>
+                            <button class="add-product" data-name="1 Frango c/Batata" data-price="800">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍚</div>
+                            <div class="product-details">
+                                <h3>1/4 Frango Arroz/Xima</h3>
+                                <p>Frango acompanhado de arroz ou xima.</p>
+                            </div>
+                            <strong class="price">200 MT</strong>
+                            <button class="add-product" data-name="1/4 Frango Arroz/Xima" data-price="200">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍚</div>
+                            <div class="product-details">
+                                <h3>1/2 Frango Arroz/Xima</h3>
+                                <p>Meio frango com acompanhamento.</p>
+                            </div>
+                            <strong class="price">400 MT</strong>
+                            <button class="add-product" data-name="1/2 Frango Arroz/Xima" data-price="400">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍚</div>
+                            <div class="product-details">
+                                <h3>1 Frango Arroz/Xima</h3>
+                                <p>Frango inteiro com arroz ou xima.</p>
+                            </div>
+                            <strong class="price">800 MT</strong>
+                            <button class="add-product" data-name="1 Frango Arroz/Xima" data-price="800">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SANDES -->
+                <div class="menu-category" data-category="sandes">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🥪</div>
+
+                        <div>
+                            <span>RÁPIDO E SABOROSO</span>
+                            <h2>Sandes</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🥪</div>
+                            <div class="product-details">
+                                <h3>Sandes de Ovo</h3>
+                                <p>Sandes simples de ovo.</p>
+                            </div>
+                            <strong class="price">30 MT</strong>
+                            <button class="add-product" data-name="Sandes de Ovo" data-price="30">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥪🥗</div>
+                            <div class="product-details">
+                                <h3>Sandes de Ovo c/Salada</h3>
+                                <p>Ovo acompanhado de salada.</p>
+                            </div>
+                            <strong class="price">40 MT</strong>
+                            <button class="add-product" data-name="Sandes de Ovo c/Salada" data-price="40">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🧀🥪</div>
+                            <div class="product-details">
+                                <h3>Sandes de Queijo</h3>
+                                <p>Sandes com queijo.</p>
+                            </div>
+                            <strong class="price">50 MT</strong>
+                            <button class="add-product" data-name="Sandes de Queijo" data-price="50">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥚🧀🥪</div>
+                            <div class="product-details">
+                                <h3>Sandes Ovo e Queijo</h3>
+                                <p>Combinação de ovo e queijo.</p>
+                            </div>
+                            <strong class="price">60 MT</strong>
+                            <button class="add-product" data-name="Sandes Ovo e Queijo" data-price="60">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🥪</div>
+                            <div class="product-details">
+                                <h3>Sandes de Frango</h3>
+                                <p>Sandes recheada com frango.</p>
+                            </div>
+                            <strong class="price">200 MT</strong>
+                            <button class="add-product" data-name="Sandes de Frango" data-price="200">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOSTAS -->
+                <div class="menu-category" data-category="tostas">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🍞</div>
+
+                        <div>
+                            <span>TORRADO E DELICIOSO</span>
+                            <h2>Tostas</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🧀🍞</div>
+                            <div class="product-details">
+                                <h3>Tosta de Queijo</h3>
+                                <p>Tosta quente com queijo.</p>
+                            </div>
+                            <strong class="price">80 MT</strong>
+                            <button class="add-product" data-name="Tosta de Queijo" data-price="80">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🐟🍞</div>
+                            <div class="product-details">
+                                <h3>Tosta de Atum</h3>
+                                <p>Tosta preparada com atum.</p>
+                            </div>
+                            <strong class="price">100 MT</strong>
+                            <button class="add-product" data-name="Tosta de Atum" data-price="100">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍗🍞</div>
+                            <div class="product-details">
+                                <h3>Tosta de Frango</h3>
+                                <p>Tosta recheada com frango.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Tosta de Frango" data-price="150">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥪</div>
+                            <div class="product-details">
+                                <h3>Tosta Mista</h3>
+                                <p>Combinação especial da casa.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Tosta Mista" data-price="150">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREGOS -->
+                <div class="menu-category" data-category="pregos">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🥩</div>
+
+                        <div>
+                            <span>PARA MATAR A FOME</span>
+                            <h2>Pregos</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🥪</div>
+                            <div class="product-details">
+                                <h3>Prego no Pão Simples</h3>
+                                <p>Prego servido no pão.</p>
+                            </div>
+                            <strong class="price">150 MT</strong>
+                            <button class="add-product" data-name="Prego no Pão Simples" data-price="150">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥪🔥</div>
+                            <div class="product-details">
+                                <h3>Prego no Pão Completo</h3>
+                                <p>Versão completa.</p>
+                            </div>
+                            <strong class="price">180 MT</strong>
+                            <button class="add-product" data-name="Prego no Pão Completo" data-price="180">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍽️🥩</div>
+                            <div class="product-details">
+                                <h3>Prego no Prato c/Batata</h3>
+                                <p>Prego servido no prato com batata.</p>
+                            </div>
+                            <strong class="price">280 MT</strong>
+                            <button class="add-product" data-name="Prego no Prato c/Batata" data-price="280">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRATOS -->
+                <div class="menu-category" data-category="pratos">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">🍛</div>
+
+                        <div>
+                            <span>REFEIÇÕES</span>
+                            <h2>Pratos</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🥩🍽️</div>
+                            <div class="product-details">
+                                <h3>Peixe Chica</h3>
+                                <p>Prato especial da casa.</p>
+                            </div>
+                            <strong class="price">250 MT</strong>
+                            <button class="add-product" data-name="Peixe Chica" data-price="250">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🥩🍟</div>
+                            <div class="product-details">
+                                <h3>Lombo de Vaca</h3>
+                                <p>Prato de carne com acompanhamento.</p>
+                            </div>
+                            <strong class="price">250 MT</strong>
+                            <button class="add-product" data-name="Lombo de Vaca" data-price="250">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BEBIDAS -->
+                <div class="menu-category" data-category="bebidas">
+
+                    <div class="category-heading">
+                        <div class="category-emoji">☕</div>
+
+                        <div>
+                            <span>PARA ACOMPANHAR</span>
+                            <h2>Bebidas Quentes</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="products-grid">
+
+                        <article class="product-card">
+                            <div class="product-icon">🥛🔥</div>
+                            <div class="product-details">
+                                <h3>Leite Quente</h3>
+                                <p>Leite servido quente.</p>
+                            </div>
+                            <strong class="price">60 MT</strong>
+                            <button class="add-product" data-name="Leite Quente" data-price="60">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍵</div>
+                            <div class="product-details">
+                                <h3>Chá Simples</h3>
+                                <p>Chá quente.</p>
+                            </div>
+                            <strong class="price">50 MT</strong>
+                            <button class="add-product" data-name="Chá Simples" data-price="50">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">☕🥛</div>
+                            <div class="product-details">
+                                <h3>Chá c/Leite</h3>
+                                <p>Chá preparado com leite.</p>
+                            </div>
+                            <strong class="price">100 MT</strong>
+                            <button class="add-product" data-name="Chá c/Leite" data-price="100">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">☕</div>
+                            <div class="product-details">
+                                <h3>Café Expresso Pequeno</h3>
+                                <p>Expresso intenso.</p>
+                            </div>
+                            <strong class="price">60 MT</strong>
+                            <button class="add-product" data-name="Café Expresso Pequeno" data-price="60">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">☕</div>
+                            <div class="product-details">
+                                <h3>Café Expresso Grande</h3>
+                                <p>Expresso em dose maior.</p>
+                            </div>
+                            <strong class="price">80 MT</strong>
+                            <button class="add-product" data-name="Café Expresso Grande" data-price="80">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">☕🥛</div>
+                            <div class="product-details">
+                                <h3>Ricoffee c/Leite</h3>
+                                <p>Café acompanhado de leite.</p>
+                            </div>
+                            <strong class="price">100 MT</strong>
+                            <button class="add-product" data-name="Ricoffee c/Leite" data-price="100">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">🍫🥛</div>
+                            <div class="product-details">
+                                <h3>Galão Milo/Chocolate</h3>
+                                <p>Bebida quente de Milo ou chocolate.</p>
+                            </div>
+                            <strong class="price">130 MT</strong>
+                            <button class="add-product" data-name="Galão Milo/Chocolate" data-price="130">+</button>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-icon">☕✨</div>
+                            <div class="product-details">
+                                <h3>Cappuccino</h3>
+                                <p>Café cremoso especial.</p>
+                            </div>
+                            <strong class="price">130 MT</strong>
+                            <button class="add-product" data-name="Cappuccino" data-price="130">+</button>
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CARRINHO FLUTUANTE -->
+    <a href="pedido.html" class="floating-cart" id="floatingCart">
+
+        <span class="cart-icon">🛒</span>
+
+        <span class="cart-count" id="cartCount">0</span>
+
+        <span class="cart-text">
+            Meu Pedido
+            <strong id="cartTotal">0 MT</strong>
+        </span>
+
+    </a>
+
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    ☕ CAFÉ <strong>CHIMOIO</strong>
+                </div>
+
+                <p>
+                    Sabor, qualidade e bons momentos
+                    no coração de Chimoio.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Localização</h3>
+
+                <p>
+                    📍 Rua Dr. Araújo de Lacerda<br>
+                    Chimoio, Moçambique
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Menu</h3>
+
+                <a href="menu.html">Ver todos os pratos →</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Pedido</h3>
+
+                <a href="pedido.html">Fazer pedido →</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Café Chimoio. Todos os direitos reservados.
+            </span>
+
+            <span>
+                Feito com ❤️ em Chimoio
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
+
+</body>
+</html>

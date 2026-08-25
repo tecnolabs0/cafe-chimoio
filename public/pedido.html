@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Pedido | Café Chimoio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- FUNDO -->
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+
+
+    <!-- COMIDAS ANIMADAS -->
+    <div class="order-food-world" aria-hidden="true">
+        <span class="order-food order-food-1">🍔</span>
+        <span class="order-food order-food-2">🍗</span>
+        <span class="order-food order-food-3">🍟</span>
+        <span class="order-food order-food-4">☕</span>
+        <span class="order-food order-food-5">🥪</span>
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">☕</span>
+
+            <span class="logo-text">
+                CAFÉ
+                <strong>CHIMOIO</strong>
+            </span>
+        </a>
+
+
+        <nav class="nav" id="nav">
+
+            <a href="index.html">Início</a>
+            <a href="menu.html">Menu</a>
+            <a href="sobre.html">Sobre Nós</a>
+            <a href="#contacto">Contacto</a>
+
+            <a href="pedido.html" class="order-nav active">
+                🛒 Meu Pedido
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-mobile"
+            id="menuMobile"
+            type="button"
+            aria-label="Abrir menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <main class="order-page">
+
+        <!-- HERO -->
+        <section class="order-hero">
+
+            <div class="badge">
+                <span></span>
+                FINALIZE O SEU PEDIDO
+            </div>
+
+            <h1>
+                O seu pedido está
+                <span>quase pronto.</span>
+            </h1>
+
+            <p>
+                Revise os produtos escolhidos, ajuste as quantidades
+                e preencha os seus dados para continuar.
+            </p>
+
+        </section>
+
+
+        <!-- CARRINHO E RESUMO -->
+        <section class="order-layout">
+
+            <div class="order-cart-section">
+
+                <div class="order-section-header">
+
+                    <div>
+                        <span>🛒 CARRINHO</span>
+                        <h2>Meu Pedido</h2>
+                    </div>
+
+                    <button
+                        id="clearCart"
+                        class="clear-cart"
+                        type="button"
+                    >
+                        Limpar tudo
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="cartItems"
+                    class="cart-items"
+                ></div>
+
+
+                <!-- CARRINHO VAZIO -->
+                <div
+                    id="emptyCart"
+                    class="empty-cart"
+                >
+
+                    <div class="empty-cart-icon">🍽️</div>
+
+                    <h3>O seu carrinho está vazio</h3>
+
+                    <p>
+                        Explore o nosso menu e escolha algo
+                        delicioso para você.
+                    </p>
+
+                    <a
+                        href="menu.html"
+                        class="btn btn-primary"
+                    >
+                        Ver Menu
+                        <span class="arrow">→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESUMO -->
+            <aside class="order-summary">
+
+                <h2>Resumo</h2>
+
+                <div class="summary-row">
+                    <span>Produtos</span>
+                    <strong id="summaryQuantity">
+                        0 itens
+                    </strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="summarySubtotal">
+                        0 MT
+                    </strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Taxa adicional</span>
+                    <strong id="summaryTax">
+                        0 MT
+                    </strong>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong id="summaryTotal">
+                        0 MT
+                    </strong>
+                </div>
+
+
+                <!-- REGRA DOS 50% -->
+                <div class="payment-rule">
+
+                    <div class="payment-rule-icon">
+                        💳
+                    </div>
+
+                    <div>
+                        <strong>
+                            Pagamento inicial de 50%
+                        </strong>
+
+                        <p>
+                            Para o pedido ser aceite, deve efetuar
+                            o pagamento de 50% do valor total e
+                            enviar o comprovativo.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-secure">
+                    🔒 O pedido será aceite somente após a
+                    confirmação do pagamento pelo Café Chimoio.
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- DADOS DO CLIENTE -->
+        <section
+            class="checkout-section"
+            id="checkoutSection"
+        >
+
+            <div class="checkout-heading">
+
+                <span>📝 DADOS DO CLIENTE</span>
+
+                <h2>
+                    Como podemos preparar o seu pedido?
+                </h2>
+
+                <p>
+                    Preencha os seus dados corretamente para
+                    facilitar o atendimento.
+                </p>
+
+            </div>
+
+
+            <form
+                id="orderForm"
+                class="order-form"
+            >
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Digite o seu nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Número de telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Ex: 84 000 0000"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Como deseja receber o pedido?
+                    </label>
+
+
+                    <div class="delivery-options">
+
+                        <label class="delivery-option">
+
+                            <input
+                                type="radio"
+                                name="deliveryType"
+                                value="local"
+                                checked
+                            >
+
+                            <span class="delivery-option-box">
+
+                                <span class="delivery-icon">
+                                    🍽️
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        Comer no local
+                                    </strong>
+
+                                    <small>
+                                        Preparar para consumir
+                                        no Café Chimoio
+                                    </small>
+
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="delivery-option">
+
+                            <input
+                                type="radio"
+                                name="deliveryType"
+                                value="retirada"
+                            >
+
+                            <span class="delivery-option-box">
+
+                                <span class="delivery-icon">
+                                    🛍️
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        Levantar no restaurante
+                                    </strong>
+
+                                    <small>
+                                        Você busca o pedido
+                                        no Café Chimoio
+                                    </small>
+
+                                </span>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="customerNotes">
+                        Observações do pedido
+                        <span>(opcional)</span>
+                    </label>
+
+                    <textarea
+                        id="customerNotes"
+                        rows="5"
+                        placeholder="Ex: Sem cebola, pouco picante..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="checkout-total">
+
+                    <div>
+                        <span>Total do pedido</span>
+
+                        <small>
+                            O pagamento inicial será calculado
+                            automaticamente em 50%.
+                        </small>
+                    </div>
+
+                    <strong id="checkoutTotal">
+                        0 MT
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary submit-order"
+                    id="submitOrder"
+                >
+                    Continuar para pagamento
+                    <span class="arrow">→</span>
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL DE PAGAMENTO -->
+    <div
+        id="paymentModal"
+        class="payment-modal"
+    >
+
+        <div class="payment-box">
+
+            <button
+                id="closePaymentModal"
+                class="close-payment"
+                type="button"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <div class="payment-header">
+
+                <div class="payment-header-icon">
+                    💳
+                </div>
+
+                <span>
+                    PAGAMENTO DO PEDIDO
+                </span>
+
+                <h2>
+                    Falta apenas o pagamento
+                </h2>
+
+                <p>
+                    Para o pedido ser aceite, efetue o pagamento
+                    de 50% do valor total.
+                </p>
+
+            </div>
+
+
+            <div class="payment-order-number">
+
+                <span>Número do pedido</span>
+
+                <strong id="paymentOrderNumber">
+                    ---
+                </strong>
+
+            </div>
+
+
+            <div class="payment-values">
+
+                <div class="payment-value-row">
+
+                    <span>Total do pedido</span>
+
+                    <strong id="paymentTotal">
+                        0 MT
+                    </strong>
+
+                </div>
+
+
+                <div class="payment-value-row highlight">
+
+                    <div>
+                        <span>
+                            Pagamento obrigatório agora
+                        </span>
+
+                        <small>
+                            50% do valor total
+                        </small>
+                    </div>
+
+                    <strong id="paymentRequired">
+                        0 MT
+                    </strong>
+
+                </div>
+
+
+                <div class="payment-value-row">
+
+                    <span>Saldo restante</span>
+
+                    <strong id="paymentBalance">
+                        0 MT
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTRUÇÕES -->
+            <div class="payment-instructions">
+
+                <h3>📱 Efetue o pagamento</h3>
+
+                <p>
+                    Faça o pagamento através do método indicado
+                    pelo Café Chimoio.
+                </p>
+
+
+                <div class="payment-account">
+
+                    <span>M-Pesa</span>
+
+                    <strong>
+                        84 XXX XXXX
+                    </strong>
+
+                    <small>
+                        Café Chimoio
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- UPLOAD -->
+            <form
+                id="paymentForm"
+                class="payment-form"
+            >
+
+                <label
+                    for="paymentProof"
+                    class="proof-upload"
+                >
+
+                    <input
+                        type="file"
+                        id="paymentProof"
+                        accept="image/jpeg,image/png,image/webp"
+                        required
+                    >
+
+                    <span class="proof-icon">
+                        📸
+                    </span>
+
+                    <span class="proof-text">
+
+                        <strong>
+                            Enviar comprovativo
+                        </strong>
+
+                        <small>
+                            JPG, PNG ou WEBP — máximo 5 MB
+                        </small>
+
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="selectedFileName"
+                    class="selected-file-name"
+                >
+                    Nenhum comprovativo selecionado.
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary send-proof-button"
+                    id="sendProofButton"
+                >
+                    Enviar comprovativo
+                    <span class="arrow">→</span>
+                </button>
+
+            </form>
+
+
+            <div class="payment-warning">
+                ⏳ O pedido ficará aguardando confirmação.
+                Ele só será aceite após o Café Chimoio validar
+                o pagamento.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL DE SUCESSO -->
+    <div
+        id="orderSuccess"
+        class="order-success-modal"
+    >
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span>
+                COMPROVATIVO ENVIADO
+            </span>
+
+            <h2>
+                Pagamento enviado! 🎉
+            </h2>
+
+            <p id="successMessage">
+                O seu comprovativo foi enviado e o pedido está
+                aguardando confirmação do Café Chimoio.
+            </p>
+
+            <div class="success-order-number">
+                Pedido #
+                <strong id="successOrderNumber">
+                    ---
+                </strong>
+            </div>
+
+            <button
+                id="closeSuccess"
+                type="button"
+                class="btn btn-primary"
+            >
+                Voltar ao início
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    ☕ CAFÉ <strong>CHIMOIO</strong>
+                </div>
+
+                <p>
+                    Sabor, qualidade e bons momentos
+                    no coração de Chimoio.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Localização</h3>
+
+                <p>
+                    📍 Rua Dr. Araújo de Lacerda<br>
+                    Chimoio, Moçambique
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Menu</h3>
+
+                <a href="menu.html">
+                    Ver todos os pratos →
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Pedido</h3>
+
+                <a href="pedido.html">
+                    Meu pedido →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Café Chimoio.
+                Todos os direitos reservados.
+            </span>
+
+            <span>
+                Feito com ❤️ em Chimoio
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/pedido.js"></script>
+
+</body>
+</html>
